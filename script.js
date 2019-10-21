@@ -1,17 +1,17 @@
 // wymiary grida
-let rows = 60;
 let columns = 60;
+let rows = 60;
 
 // tablica która trzyma komórki
-const grid = new Array(rows);
+const grid = new Array(columns);
 for(let i = 0; i < grid.length; i++) {
-    grid[i] = new Array(columns);
+    grid[i] = new Array(rows);
 }
 
 // wirtualna tablica która przechowuje stan gry
-const grid2 = new Array(rows);
+const grid2 = new Array(columns);
 for(let i = 0; i < grid2.length; i++) {
-    grid2[i] = new Array(columns);
+    grid2[i] = new Array(rows);
 }
 
 // domyślnie wszystkie komórki martwe
@@ -97,6 +97,7 @@ function countLiveNeighbors(i, j){
 
 let go = document.getElementById("go");
 let go2 = document.getElementById("go2");
+let go3 = document.getElementById("go3");
 
 
 // inicjalizacja pustego grida
@@ -129,4 +130,13 @@ go2.addEventListener("click", ()=>{
             grid[i][j].append(countLiveNeighbors(i,j));
         } 
     } 
+});
+
+go3.addEventListener("click", ()=>{
+    for (let i = 0; i < rows; i++) { 
+        for (let j = 0; j < columns; j++) { 
+            grid2[i][j] = Math.random() > 0.5 ? true : false;
+        } 
+    } 
+    drawGrid();
 });
