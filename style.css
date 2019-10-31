@@ -33,3 +33,7 @@ button {
     font-size: 12px;
     cursor: pointer;
   }
+
+  .off {
+    background-color: #f44336;;
+  }

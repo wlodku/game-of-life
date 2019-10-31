@@ -101,7 +101,7 @@ let go2 = document.getElementById("go2");
 // inicjalizacja pustego grida
 drawGrid();
 
-
+// zyćko
 function life(){
     for (let i = 0; i < rows; i++) { 
         for (let j = 0; j < columns; j++) { 
@@ -119,8 +119,20 @@ function life(){
     drawGrid();
 }
 go.addEventListener("click", ()=>{
-    setInterval(life, 100);
+    change();
+    go.classList.toggle('off');
 });
+
+let alive;
+
+function change() {
+    if (!alive) {
+        alive = window.setInterval(life,100);
+    } else {
+        window.clearInterval(alive);
+        alive = null;
+    }
+}
 
 go2.addEventListener("click", ()=>{
     for (let i = 0; i < rows; i++) { 
